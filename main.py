@@ -4,7 +4,7 @@ import requests
 class CryptoWalletInfo:
     from cryptocompare import get_price
 
-    def info_dict(currency, address):
+    def info_dict(currency, address, decimals):
 
         url = f'https://api.blockcypher.com/v1/{currency}/main/addrs/{address}/balance'
 
@@ -18,9 +18,9 @@ class CryptoWalletInfo:
         else:  # If error getting json data
             raise Exception('Wallet address is invalid or Blockcypher API Endpoint is down.')
 
-        info = {'balance': json_data['balance'] / 100000000,
-                'total_received': json_data['total_received'] / 100000000,
-                # 'total_spent': json_data['total_spent'] / 100000000,
+        info = {'balance': json_data['balance'] / decimals,
+                'total_received': json_data['total_received'] / decimals,
+                # 'total_spent': json_data['total_spent'] / decimals,
                 'n_tx': json_data['n_tx'],  # Number of transactions
                 'final_balance': json_data['final_balance']  # Balance + Unconfirmed balance
                 }  # Add more keys in the future

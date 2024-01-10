@@ -8,7 +8,7 @@ class BitcoinWallet(CryptoWalletInfo):
         return CryptoWalletInfo.get_price("BTC", currency).get('BTC').get(currency)
 
     def info_dict(address):
-        return CryptoWalletInfo.info_dict('btc',address)
+        return CryptoWalletInfo.info_dict('btc',address, decimals=100000000)
 
     def balance_usd(address):
         return ( BitcoinWallet.get_price() * BitcoinWallet.info_dict(address).get('balance') )
