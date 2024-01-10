@@ -4,6 +4,11 @@ from main import CryptoWalletInfo
 
 
 class BitcoinWallet():
+
+    def get_price(currency='USD'):
+        return CryptoWalletInfo.get_price("BTC", currency).get('BTC').get(currency)
+
+
     def info_dict(address):
 
         url = f'https://api.blockcypher.com/v1/btc/main/addrs/{address}/balance'
@@ -20,15 +25,12 @@ class BitcoinWallet():
 
         info = {'balance': json_data['balance'] / 100000000,
                 'total_received': json_data['total_received'] / 100000000,
-                'total_spent': json_data['total_spent'] / 100000000,
+                #'total_spent': json_data['total_spent'] / 100000000,
                 'n_tx': json_data['n_tx']
                 }  # Add more keys in the future
 
         return info
 
     def balance_usd(address):
-        return CryptoWalletInfo.get_price("BTC") * BitcoinWallet.info_dict(address).balance
+        return BitcoinWallet.get_price() * BitcoinWallet.info_dict(address).get('balance')
 
-
-
-BitcoinWallet.get_balance('1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa')
