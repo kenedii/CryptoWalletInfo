@@ -1,2 +1,2 @@
 # CryptoWalletInfo
-Several functions to retrieve real time wallet balance information with USD conversions. Supported coins: BTC
+Several Python functions to retrieve real time Cryptocurrency wallet balance information along with USD conversions. Supported coins: BTC, LTC, DOGE
