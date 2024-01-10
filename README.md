@@ -2,7 +2,7 @@
 All in one Python library to retrieve real time Cryptocurrency wallet balance information along with USD conversions. 
 Supported chains: BTC, LTC, DOGE, ETH
 
-Dependencies: pip install cryptocompare, requests
+Dependencies: pip install requests
 
 Functions:
 get_price() Gets the price of a cryptocurrency
