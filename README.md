@@ -7,7 +7,13 @@ This uses Blockcyper API and Ethplorer API. No API token is needed.
 Dependencies: pip install requests
 
 Functions:
+
+
 get_price() Gets the price of a cryptocurrency
+
 info_dict() Returns a dictionary containing information about the wallet and balance
+
 balance_usd() Returns the value of the wallet balance in USD
+
 token_list() Returns a dictionary containing information about the tokens and token balances in a wallet (Supported chains: ETH)
+
