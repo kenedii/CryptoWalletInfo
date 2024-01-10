@@ -2,6 +2,8 @@
 All in one Python library to retrieve real time Cryptocurrency wallet balance information along with USD conversions. 
 Supported chains: BTC, LTC, DOGE, ETH
 
+This uses Blockcyper API and Ethplorer API. No API token is needed.
+
 Dependencies: pip install requests
 
 Functions:
