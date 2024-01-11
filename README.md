@@ -1,5 +1,5 @@
 # CryptoWalletInfo
-All in one Python library to retrieve real time Cryptocurrency Market Info & Wallet Balance information along with fiat conversions. 
+All in one Python library to retrieve real time Cryptocurrency Market Info, Wallet Balance information, and fiat conversions. 
 Supported chains: BTC, LTC, DOGE, ETH, DASH
 
 This uses Blockcyper API and Ethplorer API. No API tokens are needed.
@@ -18,12 +18,18 @@ balance_usd() Returns the value of the wallet balance in USD
 
 token_list() Returns a dictionary containing information about the tokens and token balances in a wallet (Supported chains: ETH)
 
-price_history()
+price_history() Create a Pandas DataFrame of a cryptocurrency's price history over an interval of time. Optional save file as csv
+
 Params: 
+
 token = 'BTC', 'ETH','SOL',etc. String, Any crypto tracked on Yahoo Finance
+
 date1='1420117261' String, Unix time no earlier than the first data point on yahoo finance
+
 date2=str(int(time.time())) String, unix time. current date by default. 
+
 interval='1d', String. Options are either '1d', '1wk', or '1mo'
+
 save=True bool. Whether or not to save the file on the machine
-Returns:
-Pandas Data Frame with price history data
+
+Returns: Pandas Data Frame with price history data
