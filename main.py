@@ -1,10 +1,14 @@
 import requests
+import urllib.request
+import time
+import pandas
+import os
 
 
 class CryptoWalletInfo:
     from cryptocompare import get_price
 
-    def info_dict(currency, address, decimals):
+    def info_dict(self, currency, address, decimals):
 
         url = f'https://api.blockcypher.com/v1/{currency}/main/addrs/{address}/balance'
 
@@ -26,3 +30,14 @@ class CryptoWalletInfo:
                 }  # Add more keys in the future
 
         return info
+
+    def price_history(token, date1='1420117261', date2=str(int(time.time())), interval='1d', save=True):
+        url = f'https://query1.finance.yahoo.com/v7/finance/download/{token}-USD?period1={date1}&period2={date2}&interval={interval}&events=history&includeAdjustedClose=True'
+        print(url)
+        file_name = token + '-USD' + str(int(time.time())) + '.csv'
+        urllib.request.urlretrieve(url, file_name)  # Download the csv file from Yahoo Finance
+        price_history = pandas.read_csv(file_name)
+        if not save:
+            os.remove(file_name)
+        return price_history
+
