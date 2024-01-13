@@ -33,7 +33,6 @@ class CryptoWalletInfo:
 
     def price_history(token, date1='1420117261', date2=str(int(time.time())), interval='1d', save=True):
         url = f'https://query1.finance.yahoo.com/v7/finance/download/{token}-USD?period1={date1}&period2={date2}&interval={interval}&events=history&includeAdjustedClose=True'
-        print(url)
         file_name = token + '-USD' + str(int(time.time())) + '.csv'
         urllib.request.urlretrieve(url, file_name)  # Download the csv file from Yahoo Finance
         price_history = pandas.read_csv(file_name)
