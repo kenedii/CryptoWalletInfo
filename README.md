@@ -5,7 +5,7 @@ Supported chains: BTC, LTC, DOGE, ETH, DASH
 This uses Blockcyper API and Ethplorer API. No API tokens are needed.
 Historical pricing data is retrieved from Yahoo Finance.
 
-Dependencies: requests, pandas, cryptocompare
+Dependencies: pandas, cryptocompare
 
 Functions:
 
